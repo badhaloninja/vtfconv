@@ -111,7 +111,7 @@ void save_bitmap(
 
 bool has_alpha(const Magick::Image& image)
 {
-    return image.matte();
+    return image.alpha();
 }
 
 bool has_alpha(const CVTFFile& vtf)
@@ -133,7 +133,7 @@ VTFImageFormat get_vtf_format(bool alpha)
 Magick::ImageType get_bitmap_format(bool alpha)
 {
     if (alpha) {
-        return Magick::TrueColorMatteType;
+        return Magick::TrueColorAlphaType;
     } else {
         return Magick::TrueColorType;
     }
